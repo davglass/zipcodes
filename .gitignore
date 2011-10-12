@@ -1,2 +1,2 @@
-scripts/zips.csv
-scripts/zips.csv.gz
+node_modules
+scripts/*.csv

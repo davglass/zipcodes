@@ -2,27 +2,22 @@
 
 cd "$(dirname "$0")"
 
-echo "Fetching zipscodes CSV File"
 
-if [ -f ./zips.csv.gz ]; then
-    rm ./zips.csv.gz
+if [ ! -f ./free-zipcode-database.csv ]; then
+    echo "Fetching zipscodes CSV File"
+    wget -nv "http://federalgovernmentzipcodes.us/free-zipcode-database.csv"
 fi
 
-if [ -f ./zips.csv ]; then
-    rm ./zips.csv
-fi
 
-wget -nv "http://sourceforge.net/projects/zips/files/zips/zips.csv.gz/zips.csv.gz/download"
-
-wait
-
-echo "Unzipping CSV file"
-gzip -d ./zips.csv.gz
 wait
 
 echo "Processing CSV file."
 
 ./process.js
+
+wait
+
+rm ./free-zipcode-database.csv
 
 wait
 
