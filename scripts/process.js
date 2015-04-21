@@ -35,8 +35,9 @@ data.forEach(function(line, num) {
         o.longitude = Number(clean(line[7]));
         o.city = ucfirst(clean(line[3]));
         o.state = clean(line[4]);
-
-        zips[o.zip] = o;
+        if (!zips[o.zip]) {
+            zips[o.zip] = o;
+        }
     }
 });
 
