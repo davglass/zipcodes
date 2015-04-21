@@ -30,11 +30,11 @@ data.forEach(function(line, num) {
     if (line.length > 1) {
         var o = {};
 
-        o.zip = clean(line.shift());
-        o.latitude = Number(clean(line.shift()));
-        o.longitude = Number(clean(line.shift()));
-        o.city = ucfirst(clean(line.shift()));
-        o.state = clean(line.shift());
+        o.zip = clean(line[1]);
+        o.latitude = Number(clean(line[6]));
+        o.longitude = Number(clean(line[7]));
+        o.city = ucfirst(clean(line[3]));
+        o.state = clean(line[4]);
 
         zips[o.zip] = o;
     }
