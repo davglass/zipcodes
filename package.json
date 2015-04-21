@@ -1,16 +1,20 @@
 {
-    "name": "zipcodes",
-    "description": "Useful zipcode database with helper methods",
-    "version": "0.1.0",
-    "author": "Dav Glass <davglass@gmail.com>",
-    "bugs": { "web": "http://github.com/davglass/zipcodes/issues" },
-    "main": "./lib/index.js",
-    "licenses": [{
-        "type": "BSD",
-        "url": "http://github.com/davglass/zipcodes/"
-    }],
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/davglass/zipcodes.git"
+  "name": "zipcodes",
+  "description": "Useful zipcode database with helper methods",
+  "version": "1.0.0",
+  "author": "Dav Glass <davglass@gmail.com>",
+  "bugs": {
+    "web": "http://github.com/davglass/zipcodes/issues"
+  },
+  "main": "./lib/index.js",
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "http://github.com/davglass/zipcodes/"
     }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/davglass/zipcodes.git"
+  }
 }
