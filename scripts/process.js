@@ -5,9 +5,6 @@ var fs = require('fs'),
     zips = {}, str,
     data = fs.readFileSync('./free-zipcode-database.csv', 'utf8').replace(/\r/g, '').split('\n');
 
-data.shift();
-
-
 var clean = function(str) {
     return str.replace(/"/g, '').trimLeft();
 }
@@ -25,16 +22,24 @@ var ucfirst = function(str) {
     return lines.join(' ');
 };
 
+var headers = data.shift().split(','),
+    index = {};
+
+headers.forEach(function(header, num){
+    index[clean(header)] = num;
+});
+
+
 data.forEach(function(line, num) {
     line = line.split(',');
-    if (line.length > 1) {
+    if (line.length > 1 && clean(line[index['LocationType']]).toLowerCase() == 'primary') {
         var o = {};
 
-        o.zip = clean(line.shift());
-        o.latitude = Number(clean(line.shift()));
-        o.longitude = Number(clean(line.shift()));
-        o.city = ucfirst(clean(line.shift()));
-        o.state = clean(line.shift());
+        o.zip = clean(line[index['Zipcode']])
+        o.latitude = Number(clean(line[index['Lat']]));
+        o.longitude = Number(clean(line[index['Long']]));
+        o.city = ucfirst(clean(line[index['City']]));
+        o.state = clean(line[index['State']]);
 
         zips[o.zip] = o;
     }
