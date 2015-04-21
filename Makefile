@@ -10,6 +10,6 @@ codes: zips
 test: tests
 
 tests:
-	./tests/lookup.js
+	npm test
 
 .PHONY: test tests zips

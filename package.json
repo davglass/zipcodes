@@ -16,5 +16,12 @@
   "repository": {
     "type": "git",
     "url": "http://github.com/davglass/zipcodes.git"
+  },
+  "scripts": {
+    "test": "istanbul cover --print both -- vows --spec ./tests/lookup.js"
+  },
+  "devDependencies": {
+    "istanbul": "~0.3.13",
+    "vows": "^0.8.1"
   }
 }
