@@ -7,12 +7,7 @@
     "web": "http://github.com/davglass/zipcodes/issues"
   },
   "main": "./lib/index.js",
-  "licenses": [
-    {
-      "type": "BSD",
-      "url": "http://github.com/davglass/zipcodes/"
-    }
-  ],
+  "license": "BSD",
   "repository": {
     "type": "git",
     "url": "http://github.com/davglass/zipcodes.git"
