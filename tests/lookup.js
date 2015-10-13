@@ -62,7 +62,7 @@ var tests = {
         topic: function() {
             return null;
         },
-        'should find': function() {
+        'should find by name': function() {
             var l = zipcodes.lookupByName('Marion', 'il');
             assert.equal(l.length, 1);
 
@@ -77,6 +77,16 @@ var tests = {
 
             var l = zipcodes.lookupByName('New York', 'NY');
             assert.equal(l.length, 159);
+        },
+        'should find by state': function() {
+            var l = zipcodes.lookupByState('RI');
+            assert.equal(l.length, 91);
+
+            var l = zipcodes.lookupByState('ri');
+            assert.equal(l.length, 91);
+
+            var l = zipcodes.lookupByState('foobar');
+            assert.equal(l.length, 0);
         }
     },
     'radius': {
