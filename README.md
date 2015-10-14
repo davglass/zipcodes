@@ -1,6 +1,8 @@
 Zip Code Lookups
 ================
 
+[![Build Status](https://travis-ci.org/davglass/zipcodes.svg?branch=master)](https://travis-ci.org/davglass/zipcodes)
+
 A localized (flatfile) zipcode lookup.
 
 Zipcode data was taken from here: http://federalgovernmentzipcodes.us/
