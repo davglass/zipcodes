@@ -56,6 +56,13 @@ var tests = {
 
             var dist5 = zipcodes.distance(62959, 90210);
             assert.equal(dist5, 1661);
+        },
+        'should not find': function() {
+            var dist = zipcodes.distance(62959, 123456);
+            assert.equal(dist, null);
+            
+            var dist2 = zipcodes.distance(123456, 62959);
+            assert.equal(dist2, null);
         }
     },
     'lookups': {
@@ -99,6 +106,16 @@ var tests = {
 
             var rad = zipcodes.radius(95014, 50);
             assert.equal(rad.length, 383);
+            
+            var rad = zipcodes.radius(95014, 50, true);
+            assert.equal(rad.length, 383);
+            assert.deepEqual(rad[0], {
+                zip: '93902',
+                latitude: 36.67,
+                longitude: -121.65,
+                city: 'Salinas',
+                state: 'CA'
+            });
         }
     }
 };
