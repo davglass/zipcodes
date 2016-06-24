@@ -94,7 +94,17 @@ var tests = {
 
             var l = zipcodes.lookupByState('foobar');
             assert.equal(l.length, 0);
-        }
+        },
+		'should find by coordinates': function() {
+			var loc = zipcodes.lookupByCoords(29.2108, -81.0228);
+			assert.equal(loc.city, 'Daytona Beach');
+
+			loc = zipcodes.lookupByCoords(40.715, -73.985);
+			assert.equal(loc.city, 'New York');
+
+			loc = zipcodes.lookupByCoords(36.131, -95.937);
+			assert.equal(loc.city, 'Tulsa');
+		}
     },
     'radius': {
         topic: function() {
