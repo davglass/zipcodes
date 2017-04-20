@@ -17,7 +17,7 @@ echo "Processing CSV file."
 
 wait
 
-#rm ./ca_postal_codes.csv
+rm ./ca_postal_codes.csv
 
 wait
 

@@ -17,7 +17,7 @@ echo "Processing CSV file."
 
 wait
 
-# rm ./free-zipcode-database.csv
+rm ./free-zipcode-database.csv
 
 wait
 
