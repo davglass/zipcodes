@@ -1,7 +1,10 @@
-all: zips test
+all: zips cazips test
 	
 zips:
 	./scripts/fetch.sh
+
+cazips:
+	./scripts/fetch_canada.sh
 
 zip: zips
 
