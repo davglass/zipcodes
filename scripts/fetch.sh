@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 
 
 if [ ! -f ./free-zipcode-database.csv ]; then
-    echo "Fetching zipscodes CSV File"
+    echo "Fetching US Zipcodes CSV File"
     wget -nv "http://federalgovernmentzipcodes.us/free-zipcode-database.csv"
 fi
 
