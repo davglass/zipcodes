@@ -10,6 +10,16 @@ Canada Zipcodes data was taken from here: https://www.aggdata.com/download_sampl
 
 It was then transformed into a JSON object and then wrapped with some helper methods.
 
+Update
+-----
+
+All country postal codes are available here: http://download.geonames.org/export/zip/
+
+US: http://download.geonames.org/export/zip/US.zip
+Canada: http://download.geonames.org/export/zip/CA.zip
+
+The scripts in the scripts directory can be used to update the postal codes when geonames updates their database.
+
 Usage
 -----
 

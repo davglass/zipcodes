@@ -52,7 +52,7 @@ for (var i in zips) {
     stateMap[item.state].push(item.zip);
 }
 
-str = 'exports.codes = ' + JSON.stringify(zips) + ';\n';
-str += 'exports.stateMap = ' + JSON.stringify(stateMap) + ';\n';
+str = 'exports.codes = ' + JSON.stringify(zips,null,2) + ';\n';
+str += 'exports.stateMap = ' + JSON.stringify(stateMap,null,2) + ';\n';
 
 fs.writeFileSync(path.join('../', 'lib', 'codes.js'), str, 'utf8');
