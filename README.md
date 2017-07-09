@@ -1,97 +1,70 @@
 Zip Code Lookups
 ================
-
+SP2:TODO update this build status
 [![Build Status](https://travis-ci.org/davglass/zipcodes.svg?branch=master)](https://travis-ci.org/davglass/zipcodes)
+
+This is a fork of [davglass' excellent zipcode lookup project](https://github.com/davglass/zipcodes).  
 
 A localized (flatfile) zipcode lookup.
 
-Zipcode data was taken from here: http://federalgovernmentzipcodes.us/
-Canada Zipcodes data was taken from here: https://www.aggdata.com/download_sample.php?file=ca_postal_codes.csv
+Zipcode data was taken from here: http://federalgovernmentzipcodes.us/free-zipcode-database-Primary.csv
 
 It was then transformed into a JSON object and then wrapped with some helper methods.
 
+Differences
+-----------
+I only wanted the Primary data from the federalgovernmentzipcodes.us website.  I also only need a city and state lookup so I removed the distance functionality
+found in his project.  Finally, I do not need the Canada data so I removed that from the repo as well. 
+
 Usage
 -----
-
     var zipcodes = require('zipcodes');
-
 
 Zipcode Lookup
 --------------
 
-    var hills = zipcodes.lookup(90210);
+    var hills = zipcodes.lookup(90210);  
 
-    { zip: '90210',
-      latitude: 34.088808,
-      longitude: -118.406125,
-      city: 'Beverly Hills',
-      state: 'CA' }
-
-Distance
---------
-
-This is not driving distance, it's line of sight distance
-
-
-    var dist = zipcodes.distance(62959, 90210); //In Miles
-    // dist = 1662
-
-    var kilo = zipcodes.toKilometers(dist); //Convert to Kilometers
-    // kilo = 2675
-
-    var miles = zipcodes.toMiles(zipcodes.toKilometers(dist)); //Convert to Kilometers, then to miles
-    // miles = 1662
+    { 
+        zip: '90210',  
+        city: 'Beverly Hills',  
+        state: 'CA'   
+    }
 
 
 Lookup By Name
 --------------
 
-*This does not work on the Canada data, the data file doesn't include this much detail.*
-
-    var l = zipcodes.lookupByName('Cupertino', 'CA');
+    var l = zipcodes.lookupByName('Concord', 'NH');
     
     //Always returns an array, since cities can have multiple zip codes
-    [ { zip: '95015',
-        latitude: 37.323,
-        longitude: -122.0527,
-        city: 'Cupertino',
-        state: 'CA' } ]
+    [ 
+        { 
+            zip: '03301',
+            city: 'Concord',
+            state: 'NH' 
+        },
+        { 
+            zip: '03302',
+            city: 'Concord',
+            state: 'NH' 
+        },
+        { 
+            zip: '03303',
+            city: 'Concord',
+            state: 'NH' 
+        } ,
+        { 
+            zip: '03305',
+            city: 'Concord',
+            state: 'NH' 
+        } 
+     ]
 
-
-Lookup by Radius
-----------------
-
-Get all zipcodes within the milage radius of this zipcode
-
-    var rad = zipcodes.radius(95014, 50);
-    // rad.length == 385
-
-    [ '93901',
-      '93902',
-      '93905',
-      '93906',
-      '93907',
-      '93912',
-      '93933',
-      '93942',
-      '93944',
-      '93950',
-      ...
-      '95377',
-      '95378',
-      '95385',
-      '95387',
-      '95391' 
-    ]
-
-
-TODO
-----
-
-Add support for importing into MongoDB or CouchDB to speed up searchs.
 
 Development
 -----------
+SP2:TODO - describe how to run the scripts from the command line
 
 The original CSV file that I am using for this data is not included in this repo, but I did wrap up
 the best way to get the data and how to convert it into the format that this module uses.

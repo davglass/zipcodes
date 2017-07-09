@@ -1,22 +1,25 @@
 {
   "name": "zipcodes",
   "description": "Useful zipcode database with helper methods",
-  "version": "3.0.0",
-  "author": "Dav Glass <davglass@gmail.com>",
+  "version": "1.0.0",
+  "author": "perogi <perogi@perogi.org>",
   "bugs": {
-    "web": "http://github.com/davglass/zipcodes/issues"
+    "web": "https://github.com/perogi/zipcodes-perogi/issues"
   },
   "main": "./lib/index.js",
   "license": "BSD",
   "repository": {
     "type": "git",
-    "url": "http://github.com/davglass/zipcodes.git"
+    "url": "https://github.com/perogi/zipcodes-perogi"
   },
   "scripts": {
-    "test": "istanbul cover --print both -- vows --spec ./tests/lookup.js"
+    "test": "istanbul cover node_modules/mocha/bin/_mocha $(find api -name '*.test.js') --print both -- vows --spec ./tests/lookup.js",
+    "coverage": "istanbul cover node_modules/mocha/bin/mocha *.test.js"
   },
   "devDependencies": {
     "istanbul": "~0.3.13",
+    "mocha": "^3.4.2",
+    "path": "^0.12.7",
     "vows": "^0.8.1"
   }
 }

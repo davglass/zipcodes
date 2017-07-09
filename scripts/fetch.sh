@@ -13,7 +13,7 @@ fi
 
 if [ ! -f ./free-zipcode-database.csv ]; then
     echo "Fetching US Zipcodes CSV File"
-    $wget -nv "http://federalgovernmentzipcodes.us/free-zipcode-database.csv"
+    $wget -nv "http://federalgovernmentzipcodes.us/free-zipcode-database-Primary.csv"
 fi
 
 
@@ -25,7 +25,7 @@ echo "Processing CSV file."
 
 wait
 
-rm ./free-zipcode-database.csv
+rm ./free-zipcode-database-Primary.csv
 
 wait
 
