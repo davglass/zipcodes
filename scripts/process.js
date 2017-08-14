@@ -37,7 +37,14 @@ data.forEach(function(line, num) {
         o.state = clean(line[4]);
         if (!zips[o.zip]) {
             zips[o.zip] = o;
+            var key = o.zip + '_' + o.city;
+            zips[key] = o;
+        } 
+        else {
+            var key = o.zip + '_' + o.city;
+            zips[key] = o;
         }
+
     }
 });
 

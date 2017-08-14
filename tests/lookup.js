@@ -26,6 +26,14 @@ var tests = {
             assert.equal(marion.city, 'Marion');
         }
     },
+    'Spillertown': {
+        topic: function() {
+            return zipcodes.lookup(62959, 'Spillertown');
+        },
+        'should be ok': function(spillertown) {
+            assert.equal(spillertown.city, 'Spillertown');
+        }
+    },
     'Kananaskis': {
       topic: function() {
         return zipcodes.lookup("T0L");
@@ -134,7 +142,7 @@ var tests = {
         },
         'should find': function() {
             var rad = zipcodes.radius(62959, 20);
-            assert.equal(rad.length, 37);
+            assert.equal(rad.length, 38);
 
             var rad = zipcodes.radius(95014, 50);
             assert.equal(rad.length, 370);
