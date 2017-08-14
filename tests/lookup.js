@@ -26,6 +26,14 @@ var tests = {
             assert.equal(marion.city, 'Marion');
         }
     },
+    'Spillertown': {
+        topic: function() {
+            return zipcodes.lookup(62959, 'Spillertown');
+        },
+        'should be ok': function(spillertown) {
+            assert.equal(spillertown.city, 'Spillertown');
+        }
+    },
     'Kananaskis': {
       topic: function() {
         return zipcodes.lookup("T0L");
@@ -39,7 +47,7 @@ var tests = {
           return zipcodes.lookup("V6B2Y9");
         },
         'should be ok': function(bc) {
-          assert.equal(bc.state, "British Columbia");
+          assert.equal(bc.state, "BC");
         }
     },
     'Beverly Hills': {
@@ -56,7 +64,7 @@ var tests = {
         },
         'should find': function() {
             var dist = zipcodes.distance(62959, 90210);
-            assert.equal(dist, 1661);
+            assert.equal(dist, 1662);
 
             var dist2 = zipcodes.distance(62959, 62959);
             assert.equal(dist2, 0);
@@ -65,15 +73,24 @@ var tests = {
             assert.equal(dist3, 68);
 
             var dist4 = zipcodes.distance(62959, 95014);
-            assert.equal(dist4, 1807);
-            assert.equal(zipcodes.toKilometers(dist4), 2908);
+            assert.equal(dist4, 1805);
+            assert.equal(zipcodes.toKilometers(dist4), 2905);
             assert.equal(zipcodes.toMiles(zipcodes.toKilometers(dist4)), dist4);
 
             var dist5 = zipcodes.distance(62959, 90210);
-            assert.equal(dist5, 1661);
+            assert.equal(dist5, 1662);
 
             var dist6 = zipcodes.distance("T2E", "V5N");
-            assert.equal(dist6, 417);
+            assert.equal(dist6, 419);
+
+            var dist4 = zipcodes.distance(97703, "31422");
+            assert.equal(dist4, 2322);
+
+            var dist7 = zipcodes.distance('08512', '08512');
+            assert.equal(dist7, 0);
+
+            var dist8 = zipcodes.distance(62595, '62595');
+            assert.equal(dist8, 0);
         },
         'should not find': function() {
             var dist = zipcodes.distance(62959, 123456);
@@ -84,6 +101,7 @@ var tests = {
 
             var dist3 = zipcodes.distance(123456, "V5N");
             assert.equal(dist3, null);
+
         }
     },
     'lookups': {
@@ -101,17 +119,17 @@ var tests = {
             assert.equal(l.length, 2);
 
             var l = zipcodes.lookupByName('New York', 'New York');
-            assert.equal(l.length, 159);
+            assert.equal(l.length, 146);
 
             var l = zipcodes.lookupByName('New York', 'NY');
-            assert.equal(l.length, 159);
+            assert.equal(l.length, 146);
         },
         'should find by state': function() {
             var l = zipcodes.lookupByState('RI');
-            assert.equal(l.length, 91);
+            assert.equal(l.length, 90);
 
             var l = zipcodes.lookupByState('ri');
-            assert.equal(l.length, 91);
+            assert.equal(l.length, 90);
 
             var l = zipcodes.lookupByState('foobar');
             assert.equal(l.length, 0);
@@ -124,17 +142,17 @@ var tests = {
         },
         'should find': function() {
             var rad = zipcodes.radius(62959, 20);
-            assert.equal(rad.length, 37);
+            assert.equal(rad.length, 38);
 
             var rad = zipcodes.radius(95014, 50);
-            assert.equal(rad.length, 383);
+            assert.equal(rad.length, 370);
             
             var rad = zipcodes.radius(95014, 50, true);
-            assert.equal(rad.length, 383);
+            assert.equal(rad.length, 370);
             assert.deepEqual(rad[0], {
-                zip: '93902',
-                latitude: 36.67,
-                longitude: -121.65,
+                zip: '93901',
+                latitude: 36.6677,
+                longitude: -121.6596,
                 city: 'Salinas',
                 state: 'CA'
             });

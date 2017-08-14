@@ -21,7 +21,7 @@ wait
 
 echo "Processing CSV file."
 
-./processCanada.js
+processGeoNamesCanada.js
 
 wait
 
