@@ -5,7 +5,6 @@ var path = require('path'),
     assert = require('assert'),
     zipcodes = require(path.join(__dirname, '../', 'lib'));
 
-
 var tests = {
     'should export': {
         topic: function() {
@@ -25,6 +24,22 @@ var tests = {
         },
         'should be ok': function(marion) {
             assert.equal(marion.city, 'Marion');
+        }
+    },
+    'Kananaskis': {
+      topic: function() {
+        return zipcodes.lookup("T0L");
+      },
+      'should be ok': function(kananaskis) {
+        assert.equal(kananaskis.city, "Kananaskis Country (claresholm)");
+      }
+    },
+    'BC': {
+        topic: function() {
+          return zipcodes.lookup("V6B2Y9");
+        },
+        'should be ok': function(bc) {
+          assert.equal(bc.state, "British Columbia");
         }
     },
     'Beverly Hills': {
@@ -56,13 +71,19 @@ var tests = {
 
             var dist5 = zipcodes.distance(62959, 90210);
             assert.equal(dist5, 1661);
+
+            var dist6 = zipcodes.distance("T2E", "V5N");
+            assert.equal(dist6, 417);
         },
         'should not find': function() {
             var dist = zipcodes.distance(62959, 123456);
             assert.equal(dist, null);
-            
+
             var dist2 = zipcodes.distance(123456, 62959);
             assert.equal(dist2, null);
+
+            var dist3 = zipcodes.distance(123456, "V5N");
+            assert.equal(dist3, null);
         }
     },
     'lookups': {
@@ -116,7 +137,7 @@ var tests = {
 
             var rad = zipcodes.radius(95014, 50);
             assert.equal(rad.length, 383);
-            
+
             var rad = zipcodes.radius(95014, 50, true);
             assert.equal(rad.length, 383);
             assert.deepEqual(rad[0], {

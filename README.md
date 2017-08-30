@@ -6,6 +6,7 @@ Zip Code Lookups
 A localized (flatfile) zipcode lookup.
 
 Zipcode data was taken from here: http://federalgovernmentzipcodes.us/
+Canada Zipcodes data was taken from here: https://www.aggdata.com/download_sample.php?file=ca_postal_codes.csv
 
 It was then transformed into a JSON object and then wrapped with some helper methods.
 
@@ -44,6 +45,8 @@ This is not driving distance, it's line of sight distance
 
 Lookup By Name
 --------------
+
+*This does not work on the Canada data, the data file doesn't include this much detail.*
 
     var l = zipcodes.lookupByName('Cupertino', 'CA');
     
