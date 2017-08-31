@@ -78,7 +78,7 @@ var tests = {
         'should not find': function() {
             var dist = zipcodes.distance(62959, 123456);
             assert.equal(dist, null);
-            
+
             var dist2 = zipcodes.distance(123456, 62959);
             assert.equal(dist2, null);
 
@@ -115,8 +115,17 @@ var tests = {
 
             var l = zipcodes.lookupByState('foobar');
             assert.equal(l.length, 0);
+        },
+		'should find by coordinates': function() {
+			var loc = zipcodes.lookupByCoords(29.2108, -81.0228);
+			assert.equal(loc.city, 'Daytona Beach');
 
-        }
+			loc = zipcodes.lookupByCoords(40.715, -73.985);
+			assert.equal(loc.city, 'New York');
+
+			loc = zipcodes.lookupByCoords(36.131, -95.937);
+			assert.equal(loc.city, 'Tulsa');
+		}
     },
     'radius': {
         topic: function() {
@@ -128,7 +137,7 @@ var tests = {
 
             var rad = zipcodes.radius(95014, 50);
             assert.equal(rad.length, 383);
-            
+
             var rad = zipcodes.radius(95014, 50, true);
             assert.equal(rad.length, 383);
             assert.deepEqual(rad[0], {
