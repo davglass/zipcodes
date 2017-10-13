@@ -1,3 +1,4 @@
 node_modules
 scripts/*.csv
 coverage
+package-lock.json
