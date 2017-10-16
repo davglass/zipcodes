@@ -56,7 +56,7 @@ var tests = {
         },
         'should find': function() {
             var dist = zipcodes.distance(62959, 90210);
-            assert.equal(dist, 1661);
+            assert.equal(dist, 1662);
 
             var dist2 = zipcodes.distance(62959, 62959);
             assert.equal(dist2, 0);
@@ -65,12 +65,12 @@ var tests = {
             assert.equal(dist3, 68);
 
             var dist4 = zipcodes.distance(62959, 95014);
-            assert.equal(dist4, 1807);
-            assert.equal(zipcodes.toKilometers(dist4), 2908);
+            assert.equal(dist4, 1805);
+            assert.equal(zipcodes.toKilometers(dist4), 2905);
             assert.equal(zipcodes.toMiles(zipcodes.toKilometers(dist4)), dist4);
 
             var dist5 = zipcodes.distance(62959, 90210);
-            assert.equal(dist5, 1661);
+            assert.equal(dist5, 1662);
 
             var dist6 = zipcodes.distance("T2E", "V5N");
             assert.equal(dist6, 417);
@@ -133,20 +133,20 @@ var tests = {
         },
         'should find': function() {
             var rad = zipcodes.radius(62959, 20);
-            assert.equal(rad.length, 37);
+            assert.equal(rad.length, 38);
 
             var rad = zipcodes.radius(95014, 50);
-            assert.equal(rad.length, 383);
+            assert.equal(rad.length, 387);
 
             var rad = zipcodes.radius(95014, 50, true);
-            assert.equal(rad.length, 383);
+            assert.equal(rad.length, 387);
             assert.deepEqual(rad[0], {
-                zip: '93902',
-                latitude: 36.67,
-                longitude: -121.65,
-                city: 'Salinas',
-                state: 'CA'
-            });
+              zip: '93901',
+              latitude: 36.6677,
+              longitude: -121.6596,
+              city: 'Salinas',
+              state: 'CA'
+          });
         }
     }
 };
