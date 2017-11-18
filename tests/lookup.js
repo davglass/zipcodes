@@ -145,7 +145,8 @@ var tests = {
               latitude: 36.6677,
               longitude: -121.6596,
               city: 'Salinas',
-              state: 'CA'
+              state: 'CA',
+              country: 'US'
           });
         }
     }

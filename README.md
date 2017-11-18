@@ -25,7 +25,8 @@ Zipcode Lookup
       latitude: 34.088808,
       longitude: -118.406125,
       city: 'Beverly Hills',
-      state: 'CA' }
+      state: 'CA',
+      country: 'US' }
 
 Distance
 --------
@@ -55,7 +56,8 @@ Lookup By Name
         latitude: 37.323,
         longitude: -122.0527,
         city: 'Cupertino',
-        state: 'CA' } ]
+        state: 'CA',
+        country: 'US' } ]
 
 
 Lookup by Radius

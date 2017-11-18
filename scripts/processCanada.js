@@ -34,6 +34,7 @@ data.forEach(function(line, num) {
         o.longitude = Number(clean(line[4]));
         o.city = ucfirst(clean(line[1]));
         o.state = clean(line[2]);
+        o.country = 'Canada';
         if (!zips[o.zip]) {
             zips[o.zip] = o;
         }

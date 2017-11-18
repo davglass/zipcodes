@@ -53,6 +53,7 @@ data.forEach(function(line, num) {
         }
         o.city = ucfirst(clean(line[3]));
         o.state = clean(line[4]);
+        o.country = 'US';
         if (!zips[o.zip]) {
             zips[o.zip] = o;
         }
