@@ -5,8 +5,9 @@ Zip Code Lookups
 
 A localized (flatfile) zipcode lookup.
 
-Zipcode data was taken from here: http://federalgovernmentzipcodes.us/
-Canada Zipcodes data was taken from here: https://www.aggdata.com/download_sample.php?file=ca_postal_codes.csv
+USA zip codes data was taken from here: http://federalgovernmentzipcodes.us/
+
+Canada zip codes data was taken from here: https://www.aggdata.com/download_sample.php?file=ca_postal_codes.csv
 
 It was then transformed into a JSON object and then wrapped with some helper methods.
 
