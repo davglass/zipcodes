@@ -87,7 +87,18 @@ Get all zipcodes within the milage radius of this zipcode
       '95391' 
     ]
 
+Zipcode Random
+--------------
 
+    var zipObj = zipcodes.random();
+
+    { zip: '90210',
+      latitude: 34.088808,
+      longitude: -118.406125,
+      city: 'Beverly Hills',
+      state: 'CA',
+      country: 'US' }
+      
 TODO
 ----
 

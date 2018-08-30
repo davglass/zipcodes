@@ -149,6 +149,21 @@ var tests = {
               country: 'US'
           });
         }
+    },
+    'random': {
+        topic: function() {
+            return null;
+        },
+        'should find a random zipcode object': function(){
+            var history = [];
+            for(var i = 0; i < 10; i++){
+                var ran = zipcodes.random();
+                assert.isObject(ran);
+                // Make sure this object isn't the same as previously
+                assert(history.indexOf(ran) === -1);
+                history.push(ran);
+            }
+        }
     }
 };
 
