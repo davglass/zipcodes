@@ -16,7 +16,7 @@
     "test": "istanbul cover --print both -- vows --spec ./tests/lookup.js"
   },
   "devDependencies": {
-    "istanbul": "~0.3.13",
+    "istanbul": "^0.4.5",
     "vows": "^0.8.1"
   }
 }
