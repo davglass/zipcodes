@@ -154,9 +154,9 @@ var tests = {
         topic: function() {
             return null;
         },
-        'should find a random zipcode object': function(){
+        'should find a random zipcode object': function() {
             var history = [];
-            for(var i = 0; i < 10; i++){
+            for (var i = 0; i < 10; i++) {
                 var ran = zipcodes.random();
                 assert.isObject(ran);
                 // Make sure this object isn't the same as previously
