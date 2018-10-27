@@ -60,6 +60,22 @@ data.forEach(function(line, num) {
     }
 });
 
+geonamesData.forEach(function(line, num) {
+    var dt = line.split('\t');
+    if (dt.length == 12) {
+        var zip = clean(dt[1]);
+        if (!zips[zip] && dt[4]) {
+            zips[zip] = {
+                zip: zip,
+                latitude: Number(clean(dt[9])),
+                longitude: Number(clean(dt[10])),
+                city: ucfirst(clean(dt[2])),
+                state: clean(dt[4]),
+                country: 'US'
+            };
+        }
+    }
+});
 
 
 var stateMap = {};
