@@ -1,12 +1,11 @@
-Zip Code Lookups
+Zip Code Lookups (Data Last Updated July 30th 2019)
 ================
 
-[![Build Status](https://travis-ci.org/davglass/zipcodes.svg?branch=master)](https://travis-ci.org/davglass/zipcodes)
+[![Build Status](https://travis-ci.org/bluehive-health/zipcodes.svg?branch=master)](https://travis-ci.org/bluehive-health/zipcodes)
 
 A localized (flatfile) zipcode lookup.
 
 USA zip codes data was taken from here: http://federalgovernmentzipcodes.us/
-
 Canada zip codes data was taken from here: https://www.aggdata.com/download_sample.php?file=ca_postal_codes.csv
 
 It was then transformed into a JSON object and then wrapped with some helper methods.
