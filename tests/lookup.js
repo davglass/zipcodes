@@ -26,6 +26,14 @@ var tests = {
             assert.equal(marion.city, 'Marion');
         }
     },
+    'Patchogue': {
+        topic: function() {
+            return zipcodes.lookup(11772);
+        },
+        'should be ok': function(patchogue) {
+            assert.equal(patchogue.city, 'Patchogue');
+        }
+    },
     'Miami': {
         topic: function() {
             return zipcodes.lookup(33192);
@@ -80,9 +88,6 @@ var tests = {
 
             var dist5 = zipcodes.distance(62959, 90210);
             assert.equal(dist5, 1662);
-
-            var dist6 = zipcodes.distance("T2E", "V5N");
-            assert.equal(dist6, 417);
         },
         'should not find': function() {
             var dist = zipcodes.distance(62959, 123456);

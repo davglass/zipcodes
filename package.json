@@ -1,7 +1,7 @@
 {
   "name": "bluehive-zipcodes",
   "description": "Useful zipcode database with helper methods (updated)",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "author": "Dav Glass <davglass@gmail.com>",
   "bugs": {
     "web": "https://github.com/bluehive-health/zipcodes/issues"
@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "istanbul": "^0.4.5",
-    "vows": "^0.8.2"
+    "vows": "^0.8.3"
   }
 }
