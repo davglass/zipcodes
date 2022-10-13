@@ -1,22 +1,22 @@
 {
-  "name": "zipcodes",
-  "description": "Useful zipcode database with helper methods",
-  "version": "8.0.0",
+  "name": "bluehive-zipcodes",
+  "description": "Useful zipcode database with helper methods (updated)",
+  "version": "8.0.2",
   "author": "Dav Glass <davglass@gmail.com>",
   "bugs": {
-    "web": "http://github.com/davglass/zipcodes/issues"
+    "web": "https://github.com/bluehive-health/zipcodes/issues"
   },
   "main": "./lib/index.js",
   "license": "BSD",
   "repository": {
     "type": "git",
-    "url": "http://github.com/davglass/zipcodes.git"
+    "url": "https://github.com/bluehive-health/zipcodes.git"
   },
   "scripts": {
     "test": "istanbul cover --print both -- vows --spec ./tests/lookup.js"
   },
   "devDependencies": {
     "istanbul": "^0.4.5",
-    "vows": "^0.8.1"
+    "vows": "^0.8.3"
   }
 }
