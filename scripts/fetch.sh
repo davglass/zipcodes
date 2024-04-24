@@ -17,17 +17,16 @@ if [ ! -x "$unzip" ]; then
     exit 1;
 fi
 
-if [ ! -f ./free-zipcode-database.csv ]; then
-    echo "Fetching US Zipcodes CSV File"
-    $wget -nv "http://federalgovernmentzipcodes.us/free-zipcode-database.csv"
-fi
-
 if [ ! -f ./US.txt ]; then
     echo "Fetching US Zipcodes CSV File From geonames "
     $wget -nv "http://download.geonames.org/export/zip/US.zip"
     $unzip -oq "US.zip" "US.txt"
 fi
 
+if [ ! -f ./ZIP_Locale_Detail.xls ]; then
+  echo "fetching usps zipcodes"
+  $wget -nv "https://postalpro.usps.com/mnt/glusterfs/2024-04/ZIP_Locale_Detail.xls"
+fi
 
 wait
 
@@ -36,8 +35,7 @@ echo "Processing CSV file."
 ./process.js
 
 wait
-
-rm ./free-zipcode-database.csv
+rm ./ZIP_Locale_Detail.xls
 rm ./US.zip*
 rm ./US.txt
 
