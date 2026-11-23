@@ -35,11 +35,26 @@ data.forEach(function(line, num) {
         o.city = ucfirst(clean(line[1]));
         o.state = clean(line[2]);
         o.country = 'Canada';
-        if (!zips[o.zip]) {
+
+        // Only accept rows that look like real Canadian postal data. This keeps
+        // an HTML error page or malformed source from corrupting codesCanada.js.
+        var validZip = /^[A-Za-z]\d[A-Za-z]/.test(o.zip);
+        var validCoords = Number.isFinite(o.latitude) && Number.isFinite(o.longitude) &&
+            o.latitude !== 0 && o.longitude !== 0;
+
+        if (validZip && validCoords && !zips[o.zip]) {
             zips[o.zip] = o;
         }
     }
 });
+
+var MIN_EXPECTED_CODES = 1000;
+if (Object.keys(zips).length < MIN_EXPECTED_CODES) {
+    console.error('Refusing to write codesCanada.js: only ' + Object.keys(zips).length +
+        ' valid postal codes parsed (expected at least ' + MIN_EXPECTED_CODES + ').');
+    console.error('The source is likely dead or returned an invalid file. Existing data left untouched.');
+    process.exit(1);
+}
 
 var stateMap = {};
 
