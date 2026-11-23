@@ -110,6 +110,34 @@ async function getZips() {
     }
   });
 
+  // Some US territories are published as separate geonames country files rather
+  // than inside US.txt, and their admin code column is a FIPS code, so the state
+  // abbreviation is passed in explicitly.
+  var mergeTerritory = function (file, state) {
+    if (!fs.existsSync(file)) {
+      return;
+    }
+    fs.readFileSync(file, 'utf8').split('\n').forEach(function (line) {
+      var dt = line.split('\t');
+      if (dt.length >= 11 && dt[1]) {
+        var zip = clean(dt[1]);
+        if (!zips[zip]) {
+          zips[zip] = {
+            zip: zip,
+            latitude: Number(clean(dt[9])),
+            longitude: Number(clean(dt[10])),
+            city: ucfirst(clean(dt[2])),
+            state: state,
+            country: 'US'
+          };
+        }
+      }
+    });
+  };
+
+  mergeTerritory('./GU.txt', 'GU');
+  mergeTerritory('./VI.txt', 'VI');
+
 
   var stateMap = {};
 
